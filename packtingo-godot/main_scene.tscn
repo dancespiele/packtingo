@@ -1,54 +1,50 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgam5dqitxleh"]
+[gd_scene load_steps=7 format=3 uid="uid://cgam5dqitxleh"]
 
 [ext_resource type="PackedScene" uid="uid://bjoboqmbcapei" path="res://wall.tscn" id="1_ovxvj"]
 [ext_resource type="PackedScene" uid="uid://bqv6tbfkri2g6" path="res://player.tscn" id="1_q10ic"]
 [ext_resource type="PackedScene" uid="uid://dxnmbxraxs07x" path="res://floor.glb" id="2_ibla5"]
 [ext_resource type="PackedScene" uid="uid://btatvnsrlckhu" path="res://ball.tscn" id="4_wypf4"]
-[ext_resource type="PackedScene" uid="uid://b5pb51vhcmsqi" path="res://box.tscn" id="5_8g27s"]
 
-[sub_resource type="Environment" id="Environment_uet1q"]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ieno5"]
+
+[sub_resource type="Environment" id="Environment_ty8fd"]
 ambient_light_color = Color(0.419608, 0.501961, 0.992157, 1)
 ambient_light_energy = 3.0
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_xky7u"]
-
-[node name="MainScene" type="MainScene"]
-
-[node name="Ball" parent="." instance=ExtResource("4_wypf4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.52021, -0.227472, 0)
+[node name="MainScene" type="Node3D"]
 
 [node name="Wall" parent="." instance=ExtResource("1_ovxvj")]
-transform = Transform3D(-7.73692e-09, 0, -0.18, 0, 0.2, 0, 0.177, 0, -7.86805e-09, -0.0344081, 0, -1.4589)
-
-[node name="Player" parent="." instance=ExtResource("1_q10ic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 0.4, -1.88636, -0.201072, 0)
+transform = Transform3D(0.0041018, 0, -0.4474, 0, 0.5301, 0, 0.308399, 0, 0.00595056, 3.65183, -0.4908, -2.45166)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.864591, -0.0287495, 0.501654, -0.502477, -0.0494681, 0.863174, 1.57057e-09, -0.998362, -0.0572156, 3.49525, 2.62705, 0)
+transform = Transform3D(0.399677, 0.052447, -0.915154, 0.916656, -0.0228678, 0.399023, 1.30912e-09, -0.998362, -0.0572156, 11.3297, 3.93106, 0)
 light_color = Color(0.27451, 0.541176, 1, 1)
 light_energy = 0.192
 light_indirect_energy = 0.354
 light_volumetric_fog_energy = 1.646
 shadow_enabled = true
 
-[node name="CameraPivot" type="Marker3D" parent="."]
-
-[node name="Camera" type="Camera3D" parent="CameraPivot"]
-transform = Transform3D(-4.35459e-08, 0.682827, -0.73058, 4.06997e-08, 0.73058, 0.682827, 1, 2.66454e-14, -5.96046e-08, -2.61747, 1.48396, 0.0126032)
-environment = SubResource("Environment_uet1q")
-fov = 59.8
-near = 0.021
-far = 9.72
-
 [node name="Ground" type="StaticBody3D" parent="."]
-transform = Transform3D(0.18, 0, 0, 0, 0.18, 0, 0, 0, 0.18, 0, -0.424661, 0)
+transform = Transform3D(0.44706, 0, 0.00221587, 0, 0.5301, 0, -0.00322256, 0, 0.307403, 3.71553, -1.59815, 0.0523554)
 
 [node name="floor" parent="Ground" instance=ExtResource("2_ibla5")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.310245, 0)
+transform = Transform3D(1, 0, 4.65661e-10, 0, 1, 0, -4.65661e-10, 0, 1, 0.0527239, 0.372954, -0.000181206)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
 transform = Transform3D(23, 0, 0, 0, 0.5, 0, 0, 0, 21, 0, 0.31, 0)
-shape = SubResource("BoxShape3D_xky7u")
+shape = SubResource("BoxShape3D_ieno5")
 
-[node name="Box" parent="." instance=ExtResource("5_8g27s")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94086, -0.208734, -1.62624)
+[node name="CameraPivot" type="Marker3D" parent="."]
+
+[node name="Camera" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(-5.61684e-08, 0.334629, -0.94235, 1.99455e-08, 0.94235, 0.334629, 1, -5.68434e-14, -5.96046e-08, -2.59181, 0.496548, -0.0230738)
+environment = SubResource("Environment_ty8fd")
+fov = 60.5
+near = 0.078
+far = 12.21
+
+[node name="Ball" parent="." instance=ExtResource("4_wypf4")]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0248554, -1.08868, 0)
+
+[node name="Player" parent="." instance=ExtResource("1_q10ic")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681631, -1.13179, 0)

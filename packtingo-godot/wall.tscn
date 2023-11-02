@@ -7,7 +7,7 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6a4fn"]
 
-[node name="Wall" type="Wall"]
+[node name="Wall" type="Node3D"]
 
 [node name="wall-cont-front" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.146, 0.037, -11.955)
