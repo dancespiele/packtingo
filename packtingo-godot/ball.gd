@@ -1,5 +1,7 @@
-extends Ball
+extends CharacterBody3D
 
+@export var target_velocity = Vector3.ZERO
+@export var initial_position = Vector3.ZERO 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
