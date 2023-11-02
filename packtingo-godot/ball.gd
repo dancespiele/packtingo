@@ -23,8 +23,14 @@ func _physics_process(delta):
 
 		if collision_object:
 			var bounce = current_velocity.bounce(collision_object.get_normal())
-			bounce.x = bounce.x + randf_range(-0.9, 2.0) * delta
+			bounce.x = bounce.x + randf_range(-2.0, 2.0) * delta
 			velocity = bounce
+
+			var collider = collision_object.get_collider()
+
+			if collider && collider.is_in_group("box"):
+				collider.destroy()
+
 
 
 func exit_screen():

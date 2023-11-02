@@ -1,5 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgam5dqitxleh"]
+[gd_scene load_steps=8 format=3 uid="uid://cgam5dqitxleh"]
 
+[ext_resource type="Script" path="res://main_scene.gd" id="1_dcqax"]
 [ext_resource type="PackedScene" uid="uid://bjoboqmbcapei" path="res://wall.tscn" id="1_ovxvj"]
 [ext_resource type="PackedScene" uid="uid://bqv6tbfkri2g6" path="res://player.tscn" id="1_q10ic"]
 [ext_resource type="PackedScene" uid="uid://dxnmbxraxs07x" path="res://floor.glb" id="2_ibla5"]
@@ -12,6 +13,7 @@ ambient_light_color = Color(0.419608, 0.501961, 0.992157, 1)
 ambient_light_energy = 3.0
 
 [node name="MainScene" type="Node3D"]
+script = ExtResource("1_dcqax")
 
 [node name="Wall" parent="." instance=ExtResource("1_ovxvj")]
 transform = Transform3D(0.0041018, 0, -0.4474, 0, 0.5301, 0, 0.308399, 0, 0.00595056, 3.65183, -0.4908, -2.45166)
