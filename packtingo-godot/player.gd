@@ -2,7 +2,7 @@ extends CharacterBody3D
 
 @export var initial_position = Vector3.ZERO
 @export var target_velocity = Vector3.ZERO
-@export var speed = 150
+@export var speed = 200
 
 func _ready():
 	initial_position = position

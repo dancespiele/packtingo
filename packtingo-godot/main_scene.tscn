@@ -1,16 +1,32 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgam5dqitxleh"]
+[gd_scene load_steps=14 format=3 uid="uid://cgam5dqitxleh"]
 
 [ext_resource type="Script" path="res://main_scene.gd" id="1_dcqax"]
 [ext_resource type="PackedScene" uid="uid://bjoboqmbcapei" path="res://wall.tscn" id="1_ovxvj"]
 [ext_resource type="PackedScene" uid="uid://bqv6tbfkri2g6" path="res://player.tscn" id="1_q10ic"]
 [ext_resource type="PackedScene" uid="uid://dxnmbxraxs07x" path="res://floor.glb" id="2_ibla5"]
 [ext_resource type="PackedScene" uid="uid://btatvnsrlckhu" path="res://ball.tscn" id="4_wypf4"]
+[ext_resource type="Script" path="res://points.gd" id="6_ghjeu"]
+[ext_resource type="Script" path="res://lifes.gd" id="7_2b5g4"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ieno5"]
 
 [sub_resource type="Environment" id="Environment_ty8fd"]
 ambient_light_color = Color(0.419608, 0.501961, 0.992157, 1)
 ambient_light_energy = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_4g3sn"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_nmwo4"]
+font_size = 30
+
+[sub_resource type="LabelSettings" id="LabelSettings_1qkcc"]
+font_size = 50
+font_color = Color(0.921569, 0.356863, 0.356863, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eaxrv"]
+font_size = 50
+font_color = Color(0.290196, 0.835294, 0.396078, 1)
 
 [node name="MainScene" type="Node3D"]
 script = ExtResource("1_dcqax")
@@ -50,3 +66,54 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.0248554, -1.08868, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_q10ic")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.681631, -1.13179, 0)
+
+[node name="UserInterface" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1150.0
+offset_bottom = 93.0
+
+[node name="Points" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 31.0
+offset_right = 220.0
+offset_bottom = 76.0
+text = "Score: 0"
+label_settings = SubResource("LabelSettings_4g3sn")
+script = ExtResource("6_ghjeu")
+
+[node name="Lifes" type="Label" parent="UserInterface"]
+layout_mode = 0
+offset_left = 945.0
+offset_top = 34.0
+offset_right = 1066.0
+offset_bottom = 79.0
+text = "Lifes 3"
+label_settings = SubResource("LabelSettings_nmwo4")
+script = ExtResource("7_2b5g4")
+
+[node name="LoseGame" type="Label" parent="UserInterface"]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.009
+anchor_right = 0.009
+offset_left = 426.65
+offset_top = 16.0
+offset_right = 720.65
+offset_bottom = 104.0
+text = "YOU LOSE"
+label_settings = SubResource("LabelSettings_1qkcc")
+horizontal_alignment = 1
+
+[node name="WinGame" type="Label" parent="UserInterface"]
+visible = false
+layout_mode = 0
+offset_left = 438.0
+offset_top = 42.0
+offset_right = 710.0
+offset_bottom = 109.0
+text = "YOU WIN"
+label_settings = SubResource("LabelSettings_eaxrv")
+horizontal_alignment = 1

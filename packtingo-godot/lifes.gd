@@ -1,6 +1,6 @@
-extends StaticBody3D
+extends Label
 
-signal destroyed
+@export var lifes = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -11,7 +11,6 @@ func _ready():
 func _process(_delta):
 	pass
 
-func destroy():
-	destroyed.emit()
-	queue_free()
-
+func _on_life_lost():
+	lifes -= 1
+	text = "Lifes: %s" % lifes
